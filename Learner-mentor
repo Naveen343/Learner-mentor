@@ -1,0 +1,43 @@
+class tech_learn():
+    def __init__(self,name):
+        self.name=name
+        self.interest = ""
+        self.designation= ""
+        self.hr=0
+        self.minute=0
+
+
+    def addStacks(self,i):
+        self.interest= i
+        print("Your interests are - ", self.interest)
+
+    def setMentorOrLearner(self,desig):
+        if(desig=='mentor' or desig=='learner' ):
+            self.designation= desig
+            print("You are a ", self.designation)
+            if desig=='mentor':
+                mentorList.append(self)
+                #print("\n\n the mentor list is ", mentorList)
+        else:
+            print("Enter the correct value. You can either be a mentor or learner")
+
+
+    def setAvailableTime(self,hr, minute):
+        if self.designation=='mentor':
+            self.hr=hr
+            self.minute=minute
+            print('time you have set is ', self.hr, ":", self.minute)
+        else:
+            print("You are not a mentor")
+
+    def getMentor(self, i,hr, minute):
+        flag=0
+        self.interest=i
+        self.hr=hr
+        self.minute=minute
+        for i in mentorList:
+            #print("the interst of mentors are ", i.interest ,"and slef interest is" , self.interest )
+            if(i.interest==self.interest and i.hr==self.hr and i.minute==self.minute):
+                flag=1
+                return flag
+
